@@ -1,0 +1,175 @@
+/* Sidebar Container */
+.sidebar {
+    min-height: 100vh;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #202326;
+    padding: 25px 15px;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 100;
+}
+
+/* Mobile Sidebar */
+.sidebar.mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 280px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    z-index: 99;
+    overflow-y: auto;
+}
+
+.sidebar.mobile.extended {
+    transform: translateX(0);
+}
+
+/* General Sidebar Image Styles */
+.sidebar img {
+    width: 20px;
+}
+
+/* Fixed Menu Icon Styles (Visible on both mobile and desktop) */
+.menu-icon-wrapper {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+/* Mobile Menu Icon Styling */
+.mobile-menu-icon {
+    width: 24px;
+    height: 24px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+/* New Chat Button Styles */
+.sidebar .new-chat {
+    margin-top: 80px; /* Increased to provide space for the menu icon */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: #080809;
+    border-radius: 50px;
+    font-size: 14px;
+    color: rgb(255, 254, 254);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sidebar .new-chat:hover {
+    background-color: #d8dde5;
+}
+
+/* Recent Chats Section */
+.sidebar .recent {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s;
+    overflow-y: auto;
+    max-height: 60vh;
+    margin-top: 20px;
+}
+
+/* Recent Chats Title */
+.sidebar .recent-title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.sidebar .no-recent {
+    color: #afadad;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Recent Entry Styles */
+.sidebar .recent-entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    padding-right: 40px;
+    border-radius: 50px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar .recent-entry:hover {
+    background-color: #e2e6eb;
+}
+
+/* Bottom Items (Help, Activity, Settings) */
+.sidebar .bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sidebar .bottom-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    padding-right: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sidebar .bottom-item:hover {
+    background-color: #e2e6eb;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-icon-wrapper {
+        display: block;
+    }
+    
+    .sidebar:not(.extended) {
+        display: none;
+    }
+    
+    .sidebar.mobile {
+        width: 280px;
+        padding-top: 70px;
+    }
+    
+    .sidebar .new-chat {
+        margin-top: 20px;
+    }
+}
+
